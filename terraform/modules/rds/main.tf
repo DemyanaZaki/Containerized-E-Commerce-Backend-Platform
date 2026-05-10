@@ -28,8 +28,9 @@ resource "aws_security_group" "rds_sg" {
 # DB SUBNET GROUP
 
 resource "aws_db_subnet_group" "main" {
-  name       = "mysql-db-subnet-group"
+  name       = "rds-subnet-group"
   subnet_ids = var.private_subnet_ids
+
 
   tags = {
     Name = "mysql-db-subnet-group"

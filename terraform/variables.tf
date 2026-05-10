@@ -16,3 +16,6 @@ variable "db_username" {}
 variable "db_password" {
   sensitive = true
 }
+variable "region" {
+  type = string
+}

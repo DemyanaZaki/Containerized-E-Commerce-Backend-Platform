@@ -206,8 +206,8 @@ resource "aws_lb" "app_alb" {
   security_groups = [aws_security_group.alb_sg.id]
 
   subnets = [
-    var.public_subnet_id,
-    var.public_subnet_2_id
+    var.public_subnet_id
+
   ]
 
   tags = {
@@ -241,7 +241,7 @@ resource "aws_autoscaling_group" "app_asg" {
 
   vpc_zone_identifier = [
     var.private_subnet_id,
-    var.private_subnet_2_id
+  
   ]
 
   target_group_arns = [aws_lb_target_group.app_tg.arn]

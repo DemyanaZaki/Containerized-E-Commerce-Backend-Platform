@@ -25,9 +25,6 @@ variable "key_name" {
 variable "ecr_repo_url" {
   type = string
 }
-variable "ec2_instance_profile" {
-  type = string
-}
 
 variable "ingress_rules" {
   type = map(number)
