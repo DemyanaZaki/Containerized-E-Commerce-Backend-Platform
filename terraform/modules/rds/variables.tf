@@ -1,8 +1,6 @@
 variable "vpc_id" {}
 
-variable "private_subnet_ids" {
-  type = list(string)
-}
+variable "private_subnet_ids" {}
 
 variable "ec2_security_group_id" {}
 
