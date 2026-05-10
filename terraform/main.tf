@@ -29,13 +29,13 @@ module "ec2" {
 
   # private subnet(s)
   private_subnet_id   = module.vpc.private_subnet_id
-  private_subnet_2_id = module.vpc.private_subnet_2_id
+  instance_type = var.instance_type
+  key_name= var.key_name
+  ecr_repo_url=var.ecr_repo_url
 
-  instance_type = "t2.micro"
+  
 
-  key_name = "my-key"
-
-  ecr_repo_url = "242201281496.dkr.ecr.us-east-1.amazonaws.com/myecr"
+  
 }
 
 

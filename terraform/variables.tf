@@ -1,14 +1,12 @@
-variable "region" {
-  default = "us-east-1" 
+variable "instance_type" {
+  type    = string
+  
 }
 
-variable "db_password" {
-  description = "The password for the RDS database"
-  type        = string
-  sensitive   = true
+variable "key_name" {
+  type = string
 }
 
 variable "ecr_repo_url" {
-  description = "The URL of the ECR repository"
-  type        = string
+  type = string
 }

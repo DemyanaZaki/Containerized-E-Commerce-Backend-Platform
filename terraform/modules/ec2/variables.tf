@@ -1,43 +1,37 @@
-########################################
-# Bastion Outputs
-########################################
-
-output "bastion_public_ip" {
-  value = aws_instance.bastion.public_ip
+variable "vpc_id" {
+  type = string
 }
 
-output "bastion_id" {
-  value = aws_instance.bastion.id
+variable "public_subnet_id" {
+  type = string
 }
 
-########################################
-# Security Groups
-########################################
 
-output "bastion_sg_id" {
-  value = aws_security_group.bastion_sg.id
+
+variable "private_subnet_id" {
+  type = string
 }
 
-output "alb_sg_id" {
-  value = aws_security_group.alb_sg.id
+
+variable "instance_type" {
+  type    = string
+  
 }
 
-output "app_sg_id" {
-  value = aws_security_group.app_sg.id
+variable "key_name" {
+  type = string
 }
 
-########################################
-# ALB
-########################################
-
-output "alb_dns_name" {
-  value = aws_lb.app_alb.dns_name
+variable "ecr_repo_url" {
+  type = string
 }
 
-########################################
-# ASG
-########################################
+variable "ingress_rules" {
+  type = map(number)
 
-output "autoscaling_group_name" {
-  value = aws_autoscaling_group.app_asg.name
+  default = {
+    ssh   = 22
+    http  = 80
+    https = 443
+  }
 }
