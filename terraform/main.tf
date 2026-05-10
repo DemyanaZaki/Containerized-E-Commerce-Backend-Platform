@@ -38,7 +38,10 @@ module "rds" {
   source = "./modules/rds"
 
   vpc_id                = module.vpc.vpc_id
-  private_subnet_ids    = [ module.vpc.private_subnet_id ]
+    private_subnet_ids    = [
+    module.vpc.private_subnet_id,
+    module.vpc.private_subnet_id2   
+  ]
   ec2_security_group_id = module.ec2.app_sg
 
   db_username = var.db_username
