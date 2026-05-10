@@ -21,6 +21,7 @@ module "vpc" {
 
 module "ec2" {
   source = "./modules/ec2"
+   ec2_instance_profile = module.iam.ec2_instance_profile_name
 
   vpc_id = module.vpc.vpc_id
 
