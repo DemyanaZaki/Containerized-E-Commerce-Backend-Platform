@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- define the character set used -->
+    <meta charset="UTF-8" />
+
+    <!-- define keywords for search engines -->
+    <meta name="keywords" content="html, CSS, vanilla, JavaScript" />
+
+    <!-- define a description for website page -->
+    <meta
+      name="description"
+      content="Special Template from Yehya with HTML, CSS & vanilla JavaScript"
+    />
+
+    <!-- define author of page -->
+    <meta name="author" content="Hallousse Yehya (Balderas)" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Setting viewport to make website look good on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font Awesome Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main style -->
+    <link rel="stylesheet" href="./css/master.css" />
+
+    <title>Balderas Template HTML, CSS & Vanilla JS</title>
+  </head>
+  <body>
+    <!-- --------------------- Settings Box --------------------- -->
+    <aside class="settings-box">
+      <div class="gear-toggle">
+        <i class="fas fa-cog"></i>
+      </div>
+      <div class="settings-content">
+        <div class="option-box">
+          <h4>Colors</h4>
+          <ul class="colors-list">
+            <li class="active" data-color="#ff9800"></li>
+            <li data-color="#fd0658"></li>
+            <li data-color="#4caf50"></li>
+            <li data-color="#9c27b0"></li>
+            <li data-color="#1db4fa"></li>
+          </ul>
+        </div>
+        <div class="option-box">
+          <div class="random-back">
+            <h4>Random Background</h4>
+            <span class="yes active" data-randmback="yes">Yes</span>
+            <span class="no" data-randmback="no">No</span>
+          </div>
+        </div>
+        <div class="option-box">
+          <div class="navigation-bullets">
+            <h4>Navigation Bullets</h4>
+            <span class="yes active" data-display="yes">Yes</span>
+            <span class="no" data-display="no">No</span>
+          </div>
+        </div>
+        <button class="reset-option">Reset Options</button>
+      </div>
+    </aside>
+    <!-- Settings Box --------------------- --------------------- -->
+    <!-- --------------------- Navigation Bullets --------------------- -->
+    <ul class="nav-bullets">
+      <li class="bullet" data-section=".home">
+        <a class="tooltip">Home</a>
+      </li>
+      <li class="bullet" data-section=".about-us">
+        <a class="tooltip">About Us</a>
+      </li>
+      <li class="bullet" data-section=".skills">
+        <a class="tooltip">Skills</a>
+      </li>
+      <li class="bullet" data-section=".gallery">
+        <a class="tooltip">Gallery</a>
+      </li>
+      <li class="bullet" data-section=".timeline">
+        <a class="tooltip">Timeline</a>
+      </li>
+
+      <li class="bullet" data-section=".testimonials">
+        <a class="tooltip">Testimonials</a>
+      </li>
+      <li class="bullet" data-section=".contact">
+        <a class="tooltip">Contact Us</a>
+      </li>
+    </ul>
+    <!-- Navigation Bullets --------------------- --------------------- -->
+
+    <!-- --------------------- Landing Page --------------------- -->
+    <section class="landing-page home">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="header-area">
+          <div class="logo">Spetial Design</div>
+          <div class="links-container">
+            <ul class="links">
+              <li>
+                <a href="#" data-section=".home" class="active">Home</a>
+              </li>
+              <li><a href="#" data-section=".about-us">About</a></li>
+              <li><a href="#" data-section=".skills">Skills</a></li>
+              <li><a href="#" data-section=".gallery">Gallery</a></li>
+              <li><a href="#" data-section=".timeline">Timeline</a></li>
+              <li><a href="#" data-section=".features">Features</a></li>
+              <li>
+                <a href="#" data-section=".testimonials">Testimonials</a>
+              </li>
+              <li><a href="#" data-section=".contact">Contact</a></li>
+            </ul>
+            <!-- Toggle Menu -->
+            <button class="toggle-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="introduction">
+        <h1>This is <span>Creative</span> Design</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+          laudantium animi expedita? Voluptatem, numquam veniam!
+        </p>
+      </div>
+    </section>
+    <!-- Landing Page --------------------- --------------------- -->
+    <!-- --------------------- About Us Section --------------------- -->
+    <section class="about-us">
+      <div class="container">
+        <div class="info-box">
+          <h2>About Us</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+            magni deleniti animi nobis voluptate sit laborum natus doloremque
+            molestiae in voluptatibus ratione, cumque aut harum ipsum impedit
+            perferendis sint dolorum?
+          </p>
+        </div>
+        <div class="image-box">
+          <img src="./images/aboutus.png" alt="about us" />
+        </div>
+      </div>
+    </section>
+    <!-- About Us Section --------------------- --------------------- -->
+    <!-- --------------------- Our Skills Section --------------------- -->
+    <section class="skills">
+      <h2 class="section-title">Our Skills</h2>
+      <div class="container">
+        <div class="skill-box">
+          <div class="skill-name">HTML</div>
+          <div class="skill-progress">
+            <span data-progress="95%"></span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-name">CSS</div>
+          <div class="skill-progress">
+            <span data-progress="90%"></span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-name">JavaScript</div>
+          <div class="skill-progress">
+            <span data-progress="85%"></span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-name">git & github</div>
+          <div class="skill-progress">
+            <span data-progress="85%"></span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-name">Sass</div>
+          <div class="skill-progress">
+            <span data-progress="80%"></span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-name">ReactJS</div>
+          <div class="skill-progress">
+            <span data-progress="75%"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Our Skills Section --------------------- --------------------- -->
+    <!-- --------------------- Our Gallery Section --------------------- -->
+    <section class="gallery">
+      <div class="container">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="images-box">
+          <img src="./images/landing1.jpg" alt="this is alt of img" />
+          <img src="./images/landing2.jpg" alt="image 02" />
+          <img src="./images/landing3.jpg" alt="image 03" />
+          <img src="./images/landing4.jpg" alt="image 04" />
+          <img src="./images/landing5.jpg" alt="" />
+          <img src="./images/gallery6.jpg" alt="" />
+          <img src="./images/gallery7.jpg" alt="" />
+          <img src="./images/gallery8.jpg" alt="" />
+          <img src="./images/gallery9.jpg" alt="" />
+          <img src="./images/gallery10.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- Our Gallery Section --------------------- --------------------- -->
+    <!-- --------------------- Time Line Section --------------------- -->
+    <section class="timeline">
+      <div class="container">
+        <div class="timeline-content">
+          <div class="year">2018</div>
+          <div class="left">
+            <div class="content">
+              <h3>Testing Heading</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio quaerat nostrum eum delectus qui inventore? Quidem ex
+                ut voluptates cum, sapiente, eos quae facilis repellendus vel
+                temporibus amet cupiditate laborum.
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="right">
+            <div class="content">
+              <h3>Testing Heading</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio quaerat nostrum eum delectus qui inventore? Quidem ex
+                ut voluptates cum, sapiente, eos quae facilis repellendus vel
+                temporibus amet cupiditate laborum.
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="year">2021</div>
+          <div class="right">
+            <div class="content">
+              <h3>Testing Heading</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio quaerat nostrum eum delectus qui inventore? Quidem ex
+                ut voluptates cum, sapiente, eos quae facilis repellendus vel
+                temporibus amet cupiditate laborum.
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Time Line Section --------------------- --------------------- -->
+    <!-- --------------------- Our Features Section --------------------- -->
+    <section class="features">
+      <h2 class="section-title">Our Features</h2>
+      <div class="container">
+        <div class="feat-box">
+          <img src="./images/feat1.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+            ad commodi quaerat necessitatibus maxime alias sit.
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="./images/feat2.png" alt="" />
+          <h4>Front End</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+            ad commodi quaerat necessitatibus maxime alias sit.
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="./images/feat3.png" alt="" />
+          <h4>Back End</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+            ad commodi quaerat necessitatibus maxime alias sit.
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="./images/feat4.png" alt="" />
+          <h4>SEO</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+            ad commodi quaerat necessitatibus maxime alias sit.
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="./images/feat5.png" alt="" />
+          <h4>Markrting</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+            ad commodi quaerat necessitatibus maxime alias sit.
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="./images/feat6.png" alt="" />
+          <h4>Security</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+            ad commodi quaerat necessitatibus maxime alias sit.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Our Features Section --------------------- --------------------- -->
+    <!-- --------------------- Testimonials Section --------------------- -->
+    <section class="testimonials">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="container">
+        <div class="testimo-box">
+          <p>
+            “Always available to help, incredibly proficient, hits deadlines
+            without fail, hard working and trustworthy. I can recommend his
+            services without hesitation“
+          </p>
+          <div class="tperson-info">
+            <img src="https://i.ibb.co/1Rbwz5K/user.png" alt="" />
+            <h4>Paul Sweeney,</h4>
+            <p>CEO, APS Legal</p>
+          </div>
+        </div>
+        <div class="testimo-box">
+          <p>
+            “Very helpful when building my website, I now have my ecommerce
+            store built from scratch“
+          </p>
+          <div class="tperson-info">
+            <img src="https://i.ibb.co/zhhtvK2/member2.png" alt="" />
+            <h4>Emilly Prizeman,</h4>
+            <p>Shirtstorm Clothing</p>
+          </div>
+        </div>
+        <div class="testimo-box">
+          <p>
+            “Thanks again for the work you have done, it looks fantastic thank
+            you! I do really appreciate it. Many thanks for a great website, we
+            are extremely pleased with the result“
+          </p>
+          <div class="tperson-info">
+            <img src="https://i.ibb.co/1Rbwz5K/user.png" alt="" />
+            <h4>John Doe,</h4>
+            <p>Media Manager, Carnoisseur Ltd</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section --------------------- --------------------- -->
+    <!-- --------------------- Contact Us --------------------- -->
+    <section class="contact">
+      <div class="overlay"></div>
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <form action="">
+          <div class="left">
+            <input type="text" placeholder="Your Name" name="username" />
+            <input type="text" placeholder="Your Phone" name="userphone" />
+            <input type="email" placeholder="Your Email" name="useremail" />
+            <input type="text" placeholder="Subject" name="subject" />
+          </div>
+          <div class="right">
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Contact Us --------------------- --------------------- -->
+    <!-- --------------------- Footer --------------------- -->
+    <footer>
+      <p>Created with love By <span>Hallousse Yehya</span></p>
+    </footer>
+    <!-- Footer --------------------- --------------------- -->
+
+    <script src="./js/master.js"></script>
+  </body>
+</html>
