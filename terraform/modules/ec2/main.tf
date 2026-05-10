@@ -165,23 +165,13 @@ resource "aws_launch_template" "app_lt" {
   name = var.ec2_instance_profile
 }
 
-  user_data = <<EOF
-#!/bin/bash
-
-yum update -y
-
-yum install docker -y
-
-systemctl start docker
-systemctl enable docker
-
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${var.ecr_repo_url}
-
-docker pull ${var.ecr_repo_url}:latest
-
-docker run -d -p 80:3000 ${var.ecr_repo_url}:latest
-
-EOF
+user_data = base64encode(<<EOF
+              #!/bin/bash
+               yum update -y
+               yum install docker -y
+               systemctl start docker
+              systemctl enable docker
+              EOF
 )
 
   tag_specifications {
