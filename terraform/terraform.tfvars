@@ -6,3 +6,6 @@ instance_type = "t3.micro"
 key_name = "my-key"
 
 ecr_repo_url = "242201281496.dkr.ecr.us-east-1.amazonaws.com/myecr"
+
+  db_username = "admin"
+  db_password = "Password123!"

@@ -10,3 +10,9 @@ variable "key_name" {
 variable "ecr_repo_url" {
   type = string
 }
+
+variable "db_username" {}
+
+variable "db_password" {
+  sensitive = true
+}
