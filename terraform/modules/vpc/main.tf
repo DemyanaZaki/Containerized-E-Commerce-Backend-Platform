@@ -130,3 +130,31 @@ resource "aws_route_table_association" "public_assoc" {
 
 
 
+this my vpc code 
+output "vpc_id" {
+  value = aws_vpc.main.id
+}
+
+
+output "public_subnet_id" {
+  value = aws_subnet.public_subnet.id
+}
+
+output "private_subnet_id" {
+  value = aws_subnet.private_subnet.id
+} 
+my output 
+and this is my variables 
+variable "vpc_cidr" {}
+variable "vpc_name" {}
+
+variable "Public_subnet_cidr" {}
+variable "private_subnet_cidr" {}
+
+variable "availability_zone" {}
+
+variable "igw_name" {}
+variable "nat_gw" {}
+
+
+

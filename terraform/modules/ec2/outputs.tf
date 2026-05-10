@@ -1,9 +1,20 @@
-output "instance_public_ips" {
-  value = aws_instance.public_ec2[*].public_ip
+
+output "vpc_id" {
+  value = aws_vpc.main.id
 }
 
-output "private_ip" {
-  value = aws_instance.apache_ec2.private_ip
+output "public_subnet_id" {
+  value = aws_subnet.public_subnet.id
 }
 
+output "public_subnet_2_id" {
+  value = aws_subnet.public_subnet_2.id
+}
 
+output "private_subnet_id" {
+  value = aws_subnet.private_subnet.id
+}
+
+output "private_subnet_2_id" {
+  value = aws_subnet.private_subnet_2.id
+}
