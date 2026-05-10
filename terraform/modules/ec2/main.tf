@@ -162,7 +162,7 @@ resource "aws_launch_template" "app_lt" {
   vpc_security_group_ids = [aws_security_group.app_sg.id]
 
   iam_instance_profile {
-  name = var.ec2_instance_profile
+  name = "ShopFlow-EC2-Profile"
 }
 
 user_data = base64encode(<<EOF
@@ -206,9 +206,9 @@ resource "aws_lb" "app_alb" {
   security_groups = [aws_security_group.alb_sg.id]
 
   subnets = [
-    var.public_subnet_id
-
-  ]
+  var.private_subnet_id,
+  var.private_subnet_id2
+]
 
   tags = {
     Name = "app-alb"
@@ -240,9 +240,9 @@ resource "aws_autoscaling_group" "app_asg" {
   min_size         = 1
 
   vpc_zone_identifier = [
-    var.private_subnet_id,
-  
-  ]
+  var.private_subnet_id,
+  var.private_subnet_id2
+]
 
   target_group_arns = [aws_lb_target_group.app_tg.arn]
 

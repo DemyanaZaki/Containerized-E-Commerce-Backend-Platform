@@ -10,6 +10,7 @@ module "vpc" {
 
   Public_subnet_cidr = "10.0.1.0/24"
   private_subnet_cidr = "10.0.2.0/24"
+  private_subnet_cidr2 = "10.0.3.0/24"
 
   availability_zone  = "us-east-1a"
 
@@ -20,23 +21,15 @@ module "vpc" {
 
 
 module "ec2" {
-  source = "./modules/ec2"
-   ec2_instance_profile = module.iam.ec2_instance_profile_name
-
-  vpc_id = module.vpc.vpc_id
-
-  # public subnet (from vpc module outputs)
-  public_subnet_id = module.vpc.public_subnet_id
-
-  # private subnet(s)
-  private_subnet_id   = module.vpc.private_subnet_id
-  instance_type = var.instance_type
-  key_name= var.key_name
-  ecr_repo_url=var.ecr_repo_url
-
-  
-
-  
+  source               = "./modules/ec2"
+  ec2_instance_profile = module.iam.ec2_instance_profile_name
+  vpc_id               = module.vpc.vpc_id
+  public_subnet_id     = module.vpc.public_subnet_id
+  private_subnet_id    = module.vpc.private_subnet_id
+  private_subnet_id2   = module.vpc.private_subnet_id2   # ADD THIS
+  instance_type        = var.instance_type
+  key_name             = var.key_name
+  ecr_repo_url         = var.ecr_repo_url
 }
 
 

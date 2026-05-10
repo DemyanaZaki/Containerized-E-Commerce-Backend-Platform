@@ -3,7 +3,7 @@ variable "vpc_name" {}
 
 variable "Public_subnet_cidr" {}
 variable "private_subnet_cidr" {}
-
+variable "private_subnet_cidr2" {}
 variable "availability_zone" {}
 
 variable "igw_name" {}

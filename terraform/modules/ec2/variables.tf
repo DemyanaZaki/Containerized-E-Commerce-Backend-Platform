@@ -7,9 +7,16 @@ variable "public_subnet_id" {
 }
 
 
+variable "ec2_instance_profile" {
+  type = string
+}
 
 variable "private_subnet_id" {
   type = string
+}
+variable "private_subnet_id2" {
+  description = "Second private subnet ID"
+  type        = string
 }
 
 

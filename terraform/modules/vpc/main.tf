@@ -39,6 +39,18 @@ resource "aws_subnet" "private_subnet" {
   }
 }
 
+###create_private_subnet-2
+resource "aws_subnet" "private_subnet_2" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.private_subnet_cidr2
+  map_public_ip_on_launch = true
+  availability_zone= "us-east-1b"
+
+  tags = {
+    Name = "private-subnet"
+  }
+}
+
 
 
 ###create_internet_GW
