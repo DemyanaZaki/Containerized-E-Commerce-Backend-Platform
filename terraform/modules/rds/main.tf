@@ -58,7 +58,7 @@ resource "aws_db_instance" "mysql" {
 
   storage_type           = "gp2"
 
-  backup_retention_period = 7
+  backup_retention_period = 1
 
   tags = {
     Name = "mysql-rds"
