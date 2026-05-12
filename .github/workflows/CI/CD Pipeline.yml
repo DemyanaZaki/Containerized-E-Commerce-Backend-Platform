@@ -155,6 +155,13 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+## just for me to destroy
+
+      - name: sleep
+        run: sleep 100
+        
+      - name: Terraform destroy
+        run: terraform destroy -auto-approve
 
 
   # smoke-test:
