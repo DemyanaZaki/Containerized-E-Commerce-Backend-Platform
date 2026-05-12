@@ -1,11 +1,11 @@
 region       = "us-east-1"
-# db_password can be set here or passed via an environment variable
+
 
 instance_type = "t3.micro"
 
-key_name = "my-key"
+key_name = "nada"
 
-ecr_repo_url = "242201281496.dkr.ecr.us-east-1.amazonaws.com/myecr"
+ecr_repo_url = "493499932519.dkr.ecr.us-east-1.amazonaws.com/shopflow"
 
-  db_username = "admin"
-  db_password = "Password123!"
+db_username = "admin"
+db_password = "Password123!"
