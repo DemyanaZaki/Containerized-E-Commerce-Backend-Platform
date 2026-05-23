@@ -6,6 +6,10 @@ variable "public_subnet_id" {
   type = string
 }
 
+variable "public_subnet_id2" {
+  description = "Second public subnet ID (for ALB multi-AZ)"
+  type        = string
+}
 
 variable "ec2_instance_profile" {
   type = string

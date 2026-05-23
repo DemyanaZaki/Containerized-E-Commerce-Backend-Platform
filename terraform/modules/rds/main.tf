@@ -54,6 +54,7 @@ resource "aws_db_instance" "mysql" {
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
 
   publicly_accessible    = false
+  multi_az               = true
   skip_final_snapshot    = true
 
   storage_type           = "gp2"

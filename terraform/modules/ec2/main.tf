@@ -162,16 +162,33 @@ resource "aws_launch_template" "app_lt" {
   vpc_security_group_ids = [aws_security_group.app_sg.id]
 
   iam_instance_profile {
-  name = "ShopFlow-EC2-Profile"
-}
+    name = var.ec2_instance_profile
+  }
 
 user_data = base64encode(<<EOF
-              #!/bin/bash
-               yum update -y
-               yum install docker -y
-               systemctl start docker
-              systemctl enable docker
-              EOF
+#!/bin/bash
+yum update -y
+yum install docker -y
+systemctl start docker
+systemctl enable docker
+
+# Add ec2-user to docker group so it can run docker without sudo
+usermod -aG docker ec2-user
+
+# Authenticate Docker with ECR using the instance IAM role
+aws ecr get-login-password --region us-east-1 | \
+  docker login --username AWS --password-stdin ${var.ecr_repo_url}
+
+# Pull the latest image from ECR
+docker pull ${var.ecr_repo_url}:latest
+
+# Run the container, mapping host port 80 to container port 80
+docker run -d \
+  --name shopflow \
+  --restart always \
+  -p 80:80 \
+  ${var.ecr_repo_url}:latest
+EOF
 )
 
   tag_specifications {
@@ -206,9 +223,9 @@ resource "aws_lb" "app_alb" {
   security_groups = [aws_security_group.alb_sg.id]
 
   subnets = [
-  var.private_subnet_id,
-  var.private_subnet_id2
-]
+    var.public_subnet_id,
+    var.public_subnet_id2
+  ]
 
   tags = {
     Name = "app-alb"
