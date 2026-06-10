@@ -47,11 +47,11 @@ resource "aws_security_group" "alb_sg" {
 
 resource "aws_security_group_rule" "alb_http" {
   type              = "ingress"
-  from_port         = 80
-  to_port           = 80
+  from_port         = 8080
+  to_port           = 8080
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-
+  source_security_group_id = module.ec2.alb_sg_id          # Your ALB SG
   security_group_id = aws_security_group.alb_sg.id
 }
 
@@ -81,11 +81,10 @@ resource "aws_security_group" "app_sg" {
 # HTTP from ALB
 resource "aws_security_group_rule" "app_http" {
   type                     = "ingress"
-  from_port                = 80
-  to_port                  = 80
+  from_port                = 8080
+  to_port                  = 8080
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.alb_sg.id
-
   security_group_id = aws_security_group.app_sg.id
 }
 
@@ -186,7 +185,7 @@ docker pull ${var.ecr_repo_url}:latest
 docker run -d \
   --name shopflow \
   --restart always \
-  -p 80:80 \
+  -p 8080:80 \
   ${var.ecr_repo_url}:latest
 EOF
 )
@@ -206,10 +205,27 @@ EOF
 
 resource "aws_lb_target_group" "app_tg" {
   name     = "app-target-group"
-  port     = 80
+  port     = 8080
   protocol = "HTTP"
   vpc_id   = var.vpc_id
+
+
+  health_check {
+    path                = "/"
+    port                = "8080" # <--- Ensure health checks go to 8080 as well
+    protocol            = "HTTP"
+    matcher             = "200"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 3
+    unhealthy_threshold = 3
+  }
+
+
 }
+
+
+
 
 ########################################
 # ALB

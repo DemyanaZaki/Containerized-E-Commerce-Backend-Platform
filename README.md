@@ -132,7 +132,7 @@ Before you begin, ensure you have the following installed and configured:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Nada-Abdelghany/Containerized-E-Commerce-Backend-Platform.git
+git clone https://github.com/DemyanaZaki/Containerized-E-Commerce-Backend-Platform.git
 cd Containerized-E-Commerce-Backend-Platform
 ```
 
@@ -154,7 +154,7 @@ This creates: VPC, subnets, Internet Gateway, EC2 launch template, Auto Scaling 
 docker build -t ecommerce-app .
 
 # Run locally
-docker run -d -p 80:80 ecommerce-app
+docker run -d -p 8080:80 ecommerce-app
 ```
 
 Visit `http://localhost` to view the application.

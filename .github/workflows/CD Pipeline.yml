@@ -161,10 +161,11 @@ jobs:
 ## just for me to destroy
 
       - name: sleep
-        run: sleep 100
+        run: sleep 400
         
       - name: Terraform destroy
-        run: terraform destroy -auto-approve
+        run: terraform destroy -auto-approve -var="db_password=${{ secrets.DB_PASSWORD }}" -var="ecr_repo_url=${{ steps.login-ecr.outputs.registry }}/shopflow"
+
 
 
   # smoke-test:
