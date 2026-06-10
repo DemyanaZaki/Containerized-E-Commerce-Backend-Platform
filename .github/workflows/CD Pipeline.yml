@@ -77,16 +77,16 @@ jobs:
       - name: Tag Docker Image
         run: |
           docker tag $IMAGE_NAME:${{ steps.image-tag.outputs.image_tag }} \
-          ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.IMAGE_NAME }}:${{ steps.image-tag.outputs.image_tag }}
+          ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:${{ steps.image-tag.outputs.image_tag }}
           docker tag $IMAGE_NAME:${{ steps.image-tag.outputs.image_tag }} \
-          ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.IMAGE_NAME }}:latest
+          ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Push Docker Image
         run: |
           docker push \
-          ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.IMAGE_NAME }}:${{ steps.image-tag.outputs.image_tag }}
+          ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:${{ steps.image-tag.outputs.image_tag }}
           docker push \
-          ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.IMAGE_NAME }}:latest
+          ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:latest
 
   terraform-plan:
     name: Terraform Validate and Plan
