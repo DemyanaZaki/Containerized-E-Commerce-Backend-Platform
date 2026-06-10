@@ -209,6 +209,11 @@ resource "aws_lb_target_group" "app_tg" {
   vpc_id   = var.vpc_id
 
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
+
   health_check {
     path                = "/"
     port                = "8080" # <--- Ensure health checks go to 8080 as well
