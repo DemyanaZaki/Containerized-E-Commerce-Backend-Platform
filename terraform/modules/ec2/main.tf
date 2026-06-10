@@ -40,28 +40,23 @@ resource "aws_security_group" "alb_sg" {
   name   = "alb-sg"
   vpc_id = var.vpc_id
 
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags = {
     Name = "alb-sg"
   }
-}
-
-resource "aws_security_group_rule" "alb_http" {
-  type              = "ingress"
-  from_port         = 8080
-  to_port           = 8080
-  protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.alb_sg.id
-}
-
-resource "aws_security_group_rule" "alb_egress" {
-  type              = "egress"
-  from_port         = 0
-  to_port           = 0
-  protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
-
-  security_group_id = aws_security_group.alb_sg.id
 }
 
 ########################################
@@ -203,10 +198,10 @@ EOF
 ########################################
 
 resource "aws_lb_target_group" "app_tg" {
-  name     = "app-target-group"
-  port     = 8080
-  protocol = "HTTP"
-  vpc_id   = var.vpc_id
+  name_prefix = "apptg-"
+  port        = 8080
+  protocol    = "HTTP"
+  vpc_id      = var.vpc_id
 
 
   lifecycle {
