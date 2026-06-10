@@ -156,7 +156,8 @@ jobs:
         run: terraform init
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        #run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var="db_password=${{ secrets.DB_PASSWORD }}" -var="ecr_repo_url=${{ steps.login-ecr.outputs.registry }}/shopflow"
 ## just for me to destroy
 
       - name: sleep
