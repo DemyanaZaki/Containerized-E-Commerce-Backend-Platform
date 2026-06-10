@@ -88,6 +88,9 @@ jobs:
           docker push \
           ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.IMAGE_NAME }}:latest
 
+
+
+
   terraform-plan:
     name: Terraform Validate and Plan
     runs-on: ubuntu-latest
@@ -119,7 +122,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        #run: terraform plan -out=tfplan
+        run: terraform plan -out=tfplan -var="db_password=${{ secrets.DB_PASSWORD }}" -var="ecr_repo_url=${{ steps.login-ecr.outputs.registry }}/shopflow"
 
 
   terraform-apply:
